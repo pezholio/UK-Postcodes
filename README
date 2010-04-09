@@ -1,0 +1,3 @@
+This is the code for UK Postcodes, an API for Codepoint Open. Shows the Latitude, Longitude, Easting, Northing and Local Authority details (county, district, ward) for a given point. Also shows nearest postcodes to a postcode and allows reverse geocoding (lat/lng to postcode).
+
+Code includes Gzipped version of the whole dataset in SQL format.
