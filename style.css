@@ -1,0 +1,149 @@
+html, body {
+	background-color: #774F38;
+	margin: 0 !important;
+	padding:  0 !important;
+	}
+	
+#main {
+	width: 800px;
+	margin: 20px auto;
+	}
+	
+#header {
+	width: 100%;
+	background-color: #ECE5CE;
+	border-bottom: 7px #C5E0DC solid;
+	margin: 0 0 10px 0;
+	padding: 0;
+	}
+	
+#header h1 {
+	margin: 0 !important;
+	padding: 10px; !important;
+	line-height: 1em;
+	}
+	
+#header h1 a:link, #header h1 a:visited {
+	color: #111;
+	text-decoration: none;
+	}
+	
+#header h1 a:focus, #header h1 a:hover, #header h1 a:active {
+	text-decoration: underline;
+	}
+	
+#header form {
+	width: 600px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 0.85em;
+	}
+	
+#tab {
+	width: 650px;
+	margin: 10px auto 10px auto;
+	padding: 0;
+	border-bottom: 2px #774F38 solid;
+	height: 23px;
+	}
+	
+#tab li {
+	display: inline;
+	list-style-type: none;
+	margin-right: 15px;
+	}
+	
+#tab li a {
+	padding: 5px 10px;
+	background-color: #F0D3AC;
+	border-top: 2px #774F38 solid;
+	border-left: 2px #774F38 solid;
+	border-right: 2px #774F38 solid;
+	text-decoration: none;
+	color: #111;
+	font-size: 1.2em;
+	position: relative;
+	top: 0px;
+	}
+	
+#tab li a.selected, #tab li a:hover {
+	background-color: #ECE5CE;
+	border-bottom: 2px #ECE5CE solid;
+	outline: none;
+	}
+	
+#header input {
+	width: 150px;
+}
+	
+#header input, #header select {
+	font-size: 1em;
+	padding: 4px;
+	} 
+	
+#main, #formats {
+	width: 600px;
+	margin: 20px auto;
+	background-color: #F1D4AF;
+	border: 7px #E08E79 solid;
+	padding: 20px 10px;
+	}
+	
+#main h2 {
+	padding-top: 0 !important;
+	margin: 0 0 30px 0 !important;
+	}
+	
+.result strong {
+	width: 120px;
+	float: left;
+	}
+	
+#main code {
+	width: 95%;
+	margin: 10px auto;
+	display: block;
+	background-color: #ece5ce;
+	border: 5px #774F38 solid;
+	padding: 2px;
+	}
+	
+    .btn {
+      display:inline-block;
+      background:none;
+      margin:0;
+      padding:3px 0;
+      border-width:0;
+      overflow:visible;
+      font:100%/1.2 Arial,Sans-serif;
+      text-decoration:none;
+      color:#333;
+      }
+    * html button.btn {
+      padding-bottom:1px;
+      }
+    /* Immediately below is a temporary hack to serve the 
+       following margin values only to Gecko browsers
+       Gecko browsers add an extra 3px of left/right 
+       padding to button elements which can't be overriden.
+       Thus, we use -3px of left/right margin to overcome this. */
+    html:not([lang*=""]) button.btn {
+      margin:0 -3px;
+      }
+    .btn span {
+      background:#ddd url(http://stopdesign.com/eg/buttons/3.0/img/bg-button.gif) repeat-x 0 0;
+      margin:0;
+      padding:3px 0;
+      border-left:1px solid #bbb;
+      border-right:1px solid #aaa;
+      }
+    * html .btn span {
+      padding-top:0;
+      }
+    .btn span span {
+      position:relative;
+      padding:3px .4em;
+      border-width:0;
+      border-top:1px solid #bbb;
+      border-bottom:1px solid #aaa;
+      }
