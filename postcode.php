@@ -12,7 +12,6 @@ mysql_select_db($db_name) or die(mysql_error());
 if ($_GET['postcode']) {
 
 	$postcode = $_GET['postcode'];
-	$single = TRUE;
 	
 if ($postcode != strtoupper($postcode)) {
 	header ('HTTP/1.1 301 Moved Permanently');
@@ -32,6 +31,8 @@ if ($postcode != strtoupper($postcode)) {
 	$result = mysql_query("SELECT *, ( 3959 * acos( cos( radians($lat) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($lng) ) + sin( radians($lat) ) * sin( radians( lat ) ) ) ) AS distance FROM postcodes ORDER BY distance LIMIT 0,1");
 	$_GET['format'] = str_replace(".", "", $_GET['format']);
 }
+
+$single = TRUE;
 
 $num_rows = mysql_num_rows($result);
 
