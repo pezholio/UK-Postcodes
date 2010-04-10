@@ -11,7 +11,7 @@ mysql_select_db($db_name) or die(mysql_error());
 
 if ($_GET['postcode']) {
 
-	$postcode = $_GET['postcode'];
+	$postcode = mysql_real_escape_string($_GET['postcode']);
 	
 if ($postcode != strtoupper($postcode)) {
 	header ('HTTP/1.1 301 Moved Permanently');
@@ -26,8 +26,8 @@ if ($postcode != strtoupper($postcode)) {
 	$result = mysql_query("SELECT * FROM postcodes WHERE REPLACE(postcode,' ','') = '$postcode'");
 
 } else {
-	$lat = $_GET['lat'];
-	$lng = $_GET['lng'];
+	$lat = mysql_real_escape_string($_GET['lat']);
+	$lng = mysql_real_escape_string($_GET['lng']);
 	$result = mysql_query("SELECT *, ( 3959 * acos( cos( radians($lat) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($lng) ) + sin( radians($lat) ) * sin( radians( lat ) ) ) ) AS distance FROM postcodes ORDER BY distance LIMIT 0,1");
 	$_GET['format'] = str_replace(".", "", $_GET['format']);
 }
@@ -69,16 +69,16 @@ $districtcode = $district['rdf:RDF']['rdf:Description'][0]['skos:notation']['val
 $ward = get_xml("http://statistics.data.gov.uk/doc/electoral-ward/". $row['county'] . $row['district'] . $row['ward'] .".rdf");
 $wardtitle = $ward['rdf:RDF']['rdf:Description'][0]['rdfs:label'][1]['value'];
 
-if ($_GET['format'] == "xml") {
-	header ("content-type: text/xml");
+if ($_GET['format'] == "xml" || $_SERVER['HTTP_ACCEPT'] == "application/xml") {
+	header ("content-type: application/xml");
 	include("xml.php");
-} elseif ($_GET['format'] == "json") {
+} elseif ($_GET['format'] == "json" || $_SERVER['HTTP_ACCEPT'] == "application/json") {
 	header('Content-type: application/json');
 	include("json.php");
-} elseif ($_GET['format'] == "rdf") {
+} elseif ($_GET['format'] == "rdf" || $_SERVER['HTTP_ACCEPT'] == "application/rdf+xml") {
 	header ("Content-type: application/rdf+xml");
 	include("rdf.php");
-} elseif ($_GET['format'] == "csv") {
+} elseif ($_GET['format'] == "csv" || $_SERVER['HTTP_ACCEPT'] == "text/csv") {
 	header("Content-type: application/octet-stream");
 	include("csv.php");
 } elseif (strlen($_GET['format']) == 0) {
