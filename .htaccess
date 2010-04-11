@@ -6,21 +6,3 @@ RewriteRule ^postcode/([a-z0-9]+)\.?(xml|json|rdf|csv)?$ postcode.php?postcode=$
 RewriteRule ^postcode/([a-z0-9]+)\.?(xml|json|rdf|csv)?$ postcode.php?postcode=$1&format=$2 [NC]
 RewriteRule ^latlng/([0-9.]+),([-0-9.]+)(\.xml|\.json|\.rdf|\.csv)?$ postcode.php?lat=$1&lng=$2&format=$3&callback=%1 [NC]
 RewriteRule ^latlng/([0-9.]+),([-0-9.]+)(\.xml|\.json|\.rdf|\.csv)?$ postcode.php?lat=$1&lng=$2&format=$3 [NC]
-
-RewriteCond %{HTTP_ACCEPT} text/html [OR]
-RewriteRule ^postcode/(a-z0-9]+)$ postcode.php?postcode=$1 [NC]
-
-RewriteCond %{HTTP_ACCEPT} application/rdf+xml [OR]
-RewriteRule ^postcode/(a-z0-9]+)$ postcode.php?postcode=$1&format=rdf [NC]
-
-RewriteCond %{HTTP_ACCEPT} application/xml [OR]
-RewriteRule ^postcode/(a-z0-9]+)$ postcode.php?postcode=$1&format=xml [NC]
-
-RewriteCond %{HTTP_ACCEPT} text/csv [OR]
-RewriteRule ^postcode/(a-z0-9]+)$ postcode.php?postcode=$1&format=csv [NC]
-
-RewriteCond %{HTTP_ACCEPT} text/comma-separated-values [OR]
-RewriteRule ^postcode/(a-z0-9]+)$ postcode.php?postcode=$1&format=csv [NC]
-
-RewriteCond %{HTTP_ACCEPT} application/json [OR]
-RewriteRule ^postcode/(a-z0-9]+)$ postcode.php?postcode=$1&format=json [NC]
