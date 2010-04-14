@@ -1,6 +1,7 @@
 <?php
 require_once("xmlparse.php");
 require_once("phpcoord-2.3.php");
+require_once("electoraldistrict.php");
 
 $db_name     = '';
 $db_username = '';
@@ -60,6 +61,8 @@ if ($row['county'] != "00") {
 $county = get_xml("http://statistics.data.gov.uk/doc/local-authority/". $row['county'] .".rdf");
 $countytitle = $county['rdf:RDF']['rdf:Description'][0]['skos:prefLabel']['value'];
 $countycode = $county['rdf:RDF']['rdf:Description'][0]['skos:notation']['value'];
+
+$edistrict = electoralDistrict($easting, $northing);
 }
 
 $district = get_xml("http://statistics.data.gov.uk/doc/local-authority/". $row['county'] . $row['district'] .".rdf");

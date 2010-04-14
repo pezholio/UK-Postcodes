@@ -29,6 +29,7 @@ if ($single) {
 if ($row['county'] != "00") {
 ?>
 <p><strong>County</strong> <a href="<?php echo "http://statistics.data.gov.uk/doc/local-authority/". $row['county']; ?>"><?php echo $countytitle; ?></a></p>
+<p><strong>County Electoral District</strong> <a href="<?php echo $edistrict['uri']; ?>"><?php echo $edistrict['name']; ?></a> <em>(Experimental)</em> <!-- <a href="http://www.uk-postcodes.com/boundary.php?easting=<?php echo $easting; ?>&northing=<?php echo $northing; ?>&code=<?php echo $edistrict['code']; ?>"><img src="http://www.uk-postcodes.com/map.png" alt="View on map" border="0" /></a> --></p>
 <?php } ?>
 <p><strong>District</strong> <a href="<?php echo "http://statistics.data.gov.uk/doc/local-authority/". $row['county'] . $row['district']; ?>"><?php echo $districttitle; ?></a></p>
 <p><strong>Ward</strong> <a href="<?php echo "http://statistics.data.gov.uk/doc/electoral-ward/". $row['county'] . $row['district'] . $row['ward'];?>" class="locality"><?php echo $wardtitle; ?></a></p>
