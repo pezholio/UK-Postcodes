@@ -10,6 +10,8 @@ $result['geo']['geohash'] = $geohash;
 if ($row['county'] != "00") {
 $result['administrative']['county']['title'] = $countytitle;
 $result['administrative']['county']['uri'] = "http://statistics.data.gov.uk/id/local-authority/". $row['county'];
+$result['administrative']['countyelectoral']['title'] = $edistrict['name'];
+$result['administrative']['countyelectoral']['uri'] = $edistrict['uri'];
 }
 $result['administrative']['district']['title'] = $districttitle;
 $result['administrative']['district']['uri'] = "http://statistics.data.gov.uk/id/local-authority/". $row['county'] . $row['district'];

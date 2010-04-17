@@ -2,7 +2,7 @@
 if ($single) {
 $row['postcode'] = str_replace(" ", "", $row['postcode']);
 ?>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:spatialrelations="http://data.ordnancesurvey.co.uk/ontology/spatialrelations/" xmlns:admingeo="http://statistics.data.gov.uk/def/administrative-geography/" xmlns:elecgeo="http://statistics.data.gov.uk/def/electoral-geography/" >
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:spatialrelations="http://data.ordnancesurvey.co.uk/ontology/spatialrelations/" xmlns:admingeo="http://statistics.data.gov.uk/def/administrative-geography/" xmlns:elecgeo="http://statistics.data.gov.uk/def/electoral-geography/" xmlns:osadmingeo="http://data.ordnancesurvey.co.uk/ontology/admingeo/" >
  <rdf:Description rdf:about="http://www.uk-postcodes.com/postcode/<?php echo strtoupper($row['postcode']); ?>">
    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"><?php echo $lat; ?></geo:lat>
    <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"><?php echo $lng; ?></geo:long>
@@ -10,11 +10,13 @@ $row['postcode'] = str_replace(" ", "", $row['postcode']);
    <spatialrelations:northing rdf:datatype="http://www.w3.org/2001/XMLSchema#float"><?php echo $northing; ?></spatialrelations:northing>
 <?php if ($row['county'] != "00") { ?> 
    <spatialrelations:t_spatiallyInside rdf:resource="http://statistics.data.gov.uk/id/local-authority/<?php echo $row['county']; ?>" />
+   <spatialrelations:t_spatiallyInside rdf:resource="<?php echo $edistrict['uri']; ?>" />
 <?php } ?>
    <spatialrelations:t_spatiallyInside rdf:resource="http://statistics.data.gov.uk/id/local-authority/<?php echo $row['county']; ?><?php echo $row['district']; ?>" />
    <spatialrelations:t_spatiallyInside rdf:resource="http://statistics.data.gov.uk/id/electoral-ward/<?php echo $row['county']; ?><?php echo $row['district']; ?><?php echo $row['ward']; ?>" />
    <?php if ($row['county'] != "00") { ?> 
    <admingeo:localAuthority rdf:resource="http://statistics.data.gov.uk/id/local-authority/<?php echo $row['county']; ?>" />
+   <osadmingeo:CountyElectoralDivision rdf:resource="<?php echo $edistrict['uri']; ?>" />
 <?php } ?>
    <admingeo:localAuthority rdf:resource="http://statistics.data.gov.uk/id/local-authority/<?php echo $row['county']; ?><?php echo $row['district']; ?>" />
    <elecgeo:ward rdf:resource="http://statistics.data.gov.uk/id/electoral-ward/<?php echo $row['county']; ?><?php echo $row['district']; ?><?php echo $row['ward']; ?>" />

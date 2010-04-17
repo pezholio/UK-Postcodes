@@ -15,16 +15,20 @@ if ($single) {
 if ($row['county'] != "00") {
 ?>
 		<county>
-			<title><?php echo $countytitle; ?></title>
+			<title><?php echo htmlentities($countytitle); ?></title>
 			<uri>http://statistics.data.gov.uk/id/local-authority/<?php echo $row['county']; ?></uri>
 		</county>
+		<electoral-district>
+			<title><?php echo htmlentities($edistrict['name']); ?></title>
+			<uri><?php echo $edistrict['uri']; ?></uri>
+		</electoral-district>
 <?php } ?>
 		<district>
-			<title><?php echo $districttitle; ?></title>
+			<title><?php echo htmlentities($districttitle); ?></title>
 			<uri>http://statistics.data.gov.uk/id/local-authority/<?php echo $row['county'] . $row['district']; ?></uri>
 		</district>
 		<ward>
-			<title><?php echo $wardtitle; ?></title>
+			<title><?php echo htmlentities($wardtitle); ?></title>
 			<uri>http://statistics.data.gov.uk/id/electoral-ward/<?php echo $row['county'] . $row['district'] . $row['ward']; ?></uri>
 		</ward>
 	</administrative>
