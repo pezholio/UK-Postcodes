@@ -1,0 +1,50 @@
+﻿html
+{
+    margin:0px;
+    padding:0px;
+    background-color:#333333;
+    list-style:none;
+    font-size:12px;
+    font-family:"Trebuchet MS";
+    color:#FFFFFF;
+}
+
+body 
+{
+    text-align:center;
+    margin-top:150px;
+}
+
+.dot
+{
+    color:#0099CB;
+}
+
+h1
+{
+    font-size:24px;
+    font-weight:bold;
+}
+
+h2
+{
+    font-size:14px;
+    font-weight:bold;
+}
+
+
+#main
+{
+    margin:0 auto;
+    width:425px;
+}
+
+a img
+{
+    border:none;
+}
+
+a img:hover
+{
+    border-bottom:dashed 1px #FFFFFF;
+}

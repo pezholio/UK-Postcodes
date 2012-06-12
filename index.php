@@ -40,6 +40,8 @@ header("Location: http://www.uk-postcodes.com/latlng/".$_POST['lat'].",".$_POST[
 <body>
 <div id="header">
 <h1><a href="http://www.uk-postcodes.com">UK Postcodes</a></h1>
+<div id="corner">Now including Northern Ireland postcodes!</div>
+
 <ul id="tab">
 <li><a href="#postcode" title="postcode" class="tab selected">Postcode</a></li>
 <li><a href="#nearest" title="nearest" class="tab">Nearest</a></li>
@@ -88,8 +90,11 @@ format <button type="submit" class="btn" name="latlng"><span><span>please</span>
 </div>
 
 <div id="formats">
-<p>Created using <a href="http://www.ordnancesurvey.co.uk/oswebsite/opendata/">Ordnance Survey Open Data</a> | <a href="api.php">API</a> <img src="http://m.okfn.org/images/ok_buttons/od_80x15_blue.png" alt="Open Data" style="float:right;" /></p>
+<p>Created using <a href="http://www.ordnancesurvey.co.uk/oswebsite/opendata/">Ordnance Survey Open Data</a> | <a href="api.php">API</a> | <a href="http://www.uk-postcodes.com/alternative.php">Alternative services</a> | <a href="apps.php">Apps</a><img src="http://m.okfn.org/images/ok_buttons/od_80x15_blue.png" alt="Open Data" style="float:right;" /></p>
 <p>Built by <a href="http://www.pezholio.co.uk">Pezholio</a></p>
+</div>
+<div id="copyright">
+<p style="text-align: center;">This site uses Royal Mail and Ordnance Survey data &copy; Crown copyright and database right 2010. Data may be used under the terms of the <a href="http://www.ordnancesurvey.co.uk/oswebsite/opendata/faq.html">OS OpenData licence</a>.</p>
 </div>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

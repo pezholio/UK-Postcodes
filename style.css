@@ -2,6 +2,7 @@ html, body {
 	background-color: #774F38;
 	margin: 0 !important;
 	padding:  0 !important;
+	overflow-x: hidden;
 	}
 	
 #main {
@@ -81,8 +82,8 @@ html, body {
 	padding: 4px;
 	} 
 	
-#main, #formats {
-	width: 600px;
+#main, #formats, #copyright {
+	width: 800px;
 	margin: 20px auto;
 	background-color: #F1D4AF;
 	border: 7px #E08E79 solid;
@@ -95,8 +96,14 @@ html, body {
 	}
 	
 .result strong {
-	width: 120px;
+	width: 190px;
 	float: left;
+	}
+	
+.result em {
+	font-size: 0.9em;
+	margin-left: 10px;
+	color: #222;
 	}
 	
 #main code {
@@ -147,3 +154,18 @@ html, body {
       border-top:1px solid #bbb;
       border-bottom:1px solid #aaa;
       }
+
+#corner {
+	position: absolute;
+	right: -80px;
+	top: 90px;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	transform: rotate(45deg);
+	background-color: #f1d4af;
+	border-top: 7px solid #e08e79;
+	border-bottom: 7px solid #e08e79;
+	color: #111;
+	padding: 8px 60px 8px 50px;
+	font-size: 1.2em;
+	}

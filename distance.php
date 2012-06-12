@@ -1,7 +1,5 @@
 <?php
-$db_name     = '';
-$db_username = '';
-$db_password = '';
+require_once("db.php");
 
 mysql_connect('localhost', $db_username, $db_password);
 mysql_select_db($db_name) or die(mysql_error());
@@ -20,27 +18,25 @@ $lng = addslashes($_GET['lng']);
 $title = $lat .",". $lng;
 }
 
-$distance = addslashes($_GET['distance']);
+$distance = mysql_real_escape_string($_GET['distance']);
 
 $result = mysql_query("SELECT *, ( 3959 * acos( cos( radians($lat) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($lng) ) + sin( radians($lat) ) * sin( radians( lat ) ) ) ) AS distance FROM postcodes HAVING distance <= $distance ORDER BY distance");
 
-if ($_GET['format'] == "xml") {
-header ("content-type: text/xml");
+if ($_GET['format'] == "xml" || $_SERVER['HTTP_ACCEPT'] == "application/xml") {
+header ("content-type: application/xml");
 include("xml.php");
-} elseif ($_GET['format'] == "kml") {
+} elseif ($_GET['format'] == "kml" || $_SERVER['HTTP_ACCEPT'] == "application/vnd.google-earth.kml+xml") {
 header ("content-type: application/vnd.google-earth.kml+xml");
 include("kml.php");
-} elseif ($_GET['format'] == "csv") {
+} elseif ($_GET['format'] == "csv" || $_SERVER['HTTP_ACCEPT'] == "text/csv") {
 header("Content-type: application/octet-stream");
 include("csv.php");
-} elseif ($_GET['format'] == "json") {
+} elseif ($_GET['format'] == "json" || $_SERVER['HTTP_ACCEPT'] == "application/json") {
 header('Content-type: application/json');
 include("json.php");
-} elseif ($_GET['format'] == "rdf") {
+} elseif ($_GET['format'] == "rdf" || $_SERVER['HTTP_ACCEPT'] == "application/rdf+xml") {
 header ("Content-type: application/rdf+xml");
 include("rdf.php");
-?>
-<?php
 } else {
 header ("content-type: text/html");
 include("result.php");

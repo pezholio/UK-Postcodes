@@ -10,8 +10,12 @@ if ($single) {
 <link type="text/css" rel="stylesheet" href="http://www.blueprintcss.org/blueprint/src/typography.css" />
 <link type="text/css" rel="stylesheet" href="http://www.blueprintcss.org/blueprint/src/forms.css" />
 <link type="text/css" rel="stylesheet" href="/style.css" />
+<link rel="stylesheet" href="/leaflet/leaflet.css" />
+<!--[if lte IE 8]><link rel="stylesheet" href="/leaflet/leaflet.ie.css" /><![endif]-->
+<script src="/leaflet/leaflet.js"></script>
+<script type="text/javascript" src="http://openlayers.org/dev/OpenLayers.js"></script>
 </head>
-<body>
+<body onload="init();">
 <div id="header">
 <h1><a href="http://www.uk-postcodes.com">UK Postcodes</a></h1>
 </div>
@@ -19,20 +23,41 @@ if ($single) {
 <div class="adr">
 <h2>Data for <span class="fn org postal-code"><?php echo strtoupper($row['postcode']); ?></span></h2>
 <div id="wrapper" class="result geo">
+<div id="map" style="width: 300px; height: 300px; float: right; margin: 0 0 20px 20px;"></div>
+
+<script type="text/javascript"> 
+var map = new L.Map('map');
+var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/3a36067fc4f2404eb235c892bb344b06/997/256/{z}/{x}/{y}.png',
+		cloudmadeAttrib = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
+		cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttrib});
+	
+	var latlng = new L.LatLng(<?php echo $lat; ?>, <?php echo $lng; ?>); 
+map.setView(latlng, 16).addLayer(cloudmade);
+
+var marker = new L.Marker(latlng);
+map.addLayer(marker);
+</script> 
+
 <p><strong>Latitude</strong> <span class="latitude"><?php echo $lat; ?></span></p>
 <p><strong>Longitude</strong> <span class="longitude"><?php echo $lng; ?></span></p>
-<p><strong>Easting</strong> <?php echo $easting; ?></p>
-<p><strong>Northing</strong> <?php echo $northing; ?></p>
+<p><strong>Easting</strong> <?php echo $easting; ?> <?php echo $ngnote; ?></p>
+<p><strong>Northing</strong> <?php echo $northing; ?> <?php echo $ngnote; ?></p>
 <p><strong>Geohash URI</strong> <a href="<?php echo $geohash; ?>" class="url"><?php echo $geohash; ?></a></p>
 <p><strong>Openly Local URL</strong> <a href="http://openlylocal.com/areas/postcodes/<?php echo $row['postcode']; ?>" rel="tag" class="url">http://openlylocal.com/areas/postcodes/<?php echo $row['postcode']; ?></a></p>
+<p><strong>Constituency</strong><a href="<?php echo $constituencyuri; ?>"><?php echo $constituencytitle; ?></a></p>
 <?php 
-if ($row['county'] != "00") {
+if (!strstr($row['countygss'], "99999999")) {
 ?>
-<p><strong>County</strong> <a href="<?php echo "http://statistics.data.gov.uk/doc/local-authority/". $row['county']; ?>"><?php echo $countytitle; ?></a></p>
-<p><strong>County Electoral District</strong> <a href="<?php echo $edistrict['uri']; ?>"><?php echo $edistrict['name']; ?></a> <em>(Experimental)</em> <!-- <a href="http://www.uk-postcodes.com/boundary.php?easting=<?php echo $easting; ?>&northing=<?php echo $northing; ?>&code=<?php echo $edistrict['code']; ?>"><img src="http://www.uk-postcodes.com/map.png" alt="View on map" border="0" /></a> --></p>
+<p><strong>County</strong> <a href="<?php echo "http://statistics.data.gov.uk/doc/local-authority/". $row['countysnac']; ?>"><?php echo $countytitle; ?></a></p>
+<p><strong>County Electoral District</strong> <a href="<?php echo $edistrict['uri']; ?>"><?php echo $edistrict['name']; ?></a></p>
 <?php } ?>
-<p><strong>District</strong> <a href="<?php echo "http://statistics.data.gov.uk/doc/local-authority/". $row['county'] . $row['district']; ?>"><?php echo $districttitle; ?></a></p>
-<p><strong>Ward</strong> <a href="<?php echo "http://statistics.data.gov.uk/doc/electoral-ward/". $row['county'] . $row['district'] . $row['ward'];?>" class="locality"><?php echo $wardtitle; ?></a></p>
+<p><strong>District</strong> <a href="<?php echo "http://statistics.data.gov.uk/doc/local-authority/". $row['councilsnac']; ?>"><?php echo $districttitle; ?></a></p>
+<p><strong>Ward</strong> <a href="<?php echo "http://statistics.data.gov.uk/doc/electoral-ward/".  $row['wardsnac'];?>" class="locality"><?php echo $wardtitle; ?></a></p>
+<?php
+if (strlen($parishname) > 0) {
+?>
+<p><strong>Parish / Community Council</strong> <a href="<?php echo $parishuri; ?>"><?php echo $parishname; ?></a></p>
+<?php } ?>
 </div>
 </div>
 </div>

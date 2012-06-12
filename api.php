@@ -27,11 +27,17 @@
 <code>http://www.uk-postcodes.com/distance.php?<strong>lat=[latitude]</strong>&<strong>lng=[longitude]</strong>&<strong>distance=[distance in miles]</strong>&<strong>format=[xml|csv|json]</strong></code>
 <p>That's it! Be nice to the server and cache your requests!</p>
 <p><small>* If using JSON, add '?callback=<strong>[some function call]</strong>' to the url to return JSONP</small></p>
+<h2 id="libraries">Helper Libraries</h2>
+<p>To make things even easier, a bunch of people have built helper libraries to make the process easier. Built one yourself? <a href="http://twitter.com/pezholio">Drop me a line via Twitter</a>.</p>
+<ul>
+<li><a href="https://github.com/stefl/pat">Ruby Gem</a> (cleverly called Pat) By <a href="http://stef.io">Stef Lewandowski</a></li>
+<li><a href="http://gist.github.com/364477">PHP Function</a> by <a href="http://www.pezholio.co.uk">Stuart Harrison</a></li>
+</ul>
 </div>
 </div>
 
 <div id="formats">
-<p>Created using <a href="http://www.ordnancesurvey.co.uk/oswebsite/opendata/">Ordnance Survey Open Data</a> | <a href="api.php">API</a> <img src="http://m.okfn.org/images/ok_buttons/od_80x15_blue.png" alt="Open Data" style="float:right;" /></p>
+<p>Created using <a href="http://www.ordnancesurvey.co.uk/oswebsite/opendata/">Ordnance Survey Open Data</a> | <a href="api.php">API</a> | <a href="http://www.uk-postcodes.com/alternative.php">Alternative services</a> | <a href="apps.php">Apps</a><img src="http://m.okfn.org/images/ok_buttons/od_80x15_blue.png" alt="Open Data" style="float:right;" /></p>
 <p>Built by <a href="http://www.pezholio.co.uk">Pezholio</a></p>
 </div>
 <script type="text/javascript">
