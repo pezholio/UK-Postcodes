@@ -79,6 +79,7 @@ $northing = $row['northing'];
 
 $geohash = file_get_contents("http://geohash.org?q=".$lat.",".$lng."&format=url");
 
+$mapit = null;
 if (!strstr($row['countygss'], "99999999")) {
 
 	$countytitle = $row['countyname'];
@@ -126,7 +127,9 @@ if (strlen($constituencycode) == 3) {
 
 if (strlen($row['parish'] == 0)) {
 
-	$mapit = json_decode(file_get_contents("http://mapit.mysociety.org/postcode/". urlencode($updatepostcode) .".json"));
+	if (!$mapit) {
+		$mapit = json_decode(file_get_contents("http://mapit.mysociety.org/postcode/". urlencode($updatepostcode) .".json"));
+	}
 
 	foreach ($mapit->areas as $area) {
 		if ($area->type_name == "Civil Parish") {
