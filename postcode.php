@@ -86,7 +86,7 @@ if (!strstr($row['countygss'], "99999999")) {
 
 	if (strlen($row['electoraldistrict']) == 0) {
 		
-		$mapit = json_decode(file_get_contents("http://mapit.mysociety.org/postcode/". urlencode($postcode) .".json"));
+		$mapit = json_decode(file_get_contents("http://mapit.mysociety.org/postcode/". urlencode($updatepostcode) .".json"));
 					
 		foreach ($mapit->areas as $area) {
 			if ($area->type_name == "County council ward") {
@@ -126,7 +126,7 @@ if (strlen($constituencycode) == 3) {
 
 if (strlen($row['parish'] == 0)) {
 
-	$mapit = json_decode(file_get_contents("http://mapit.mysociety.org/postcode/". $postcode .".json"));
+	$mapit = json_decode(file_get_contents("http://mapit.mysociety.org/postcode/". urlencode($updatepostcode) .".json"));
 
 	foreach ($mapit->areas as $area) {
 		if ($area->type_name == "Civil Parish") {
