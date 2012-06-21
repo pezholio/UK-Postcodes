@@ -20,6 +20,7 @@ if ($_GET['postcode']) {
 		} else {
 			header("Location: http://www.uk-postcodes.com/postcode/".strtoupper($postcode));
 		}
+		exit;
 	}
 
 	if (strstr($postcode, " ")) {
@@ -30,6 +31,7 @@ if ($_GET['postcode']) {
 		} else {
 			header("Location: http://www.uk-postcodes.com/postcode/".str_replace(" ", "", $postcode));
 		}
+		exit;
 	}
 
 	if (strlen($postcode) == 6) {
