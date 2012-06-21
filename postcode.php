@@ -97,7 +97,7 @@ if (!strstr($row['countygss'], "99999999")) {
 			}
 		}
 	
-		mysql_query("UPDATE postcodes SET electoraldistrict = '$edistrict[code]' WHERE postcode = '$updatepostcode'");	
+		//mysql_query("UPDATE postcodes SET electoraldistrict = '$edistrict[code]' WHERE postcode = '$updatepostcode'");
 	}
 
 }
