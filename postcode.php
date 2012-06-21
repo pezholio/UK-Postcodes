@@ -125,7 +125,7 @@ if (strlen($constituencycode) == 3) {
 	$constituencyuri = "http://data.ordnancesurvey.co.uk/doc/7". str_pad($constituencycode, 15, "0", STR_PAD_LEFT);
 }
 
-if (strlen($row['parish'] == 0)) {
+if (strlen($row['parishgss'] == 0)) {
 
 	if (!$mapit) {
 		$mapit = json_decode(file_get_contents("http://mapit.mysociety.org/postcode/". urlencode($updatepostcode) .".json"));
