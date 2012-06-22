@@ -1,7 +1,7 @@
 <?php
 require_once("db.php");
 
-mysql_connect('localhost', $db_username, $db_password);
+$link = mysql_connect('localhost', $db_username, $db_password);
 mysql_select_db($db_name) or die(mysql_error());
 
 if ($_GET['postcode']) {
@@ -41,4 +41,5 @@ include("rdf.php");
 header ("content-type: text/html");
 include("result.php");
 } 
-?>
+
+mysql_close($link);

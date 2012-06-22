@@ -5,7 +5,7 @@ require_once("phpcoord-2.3.php");
 require_once("json.php");
 //require_once("electoraldistrict.php");
 
-mysql_connect('localhost', $db_username, $db_password);
+$link = mysql_connect('localhost', $db_username, $db_password);
 mysql_select_db($db_name) or die(mysql_error());
 
 if ($_GET['postcode']) {
@@ -176,4 +176,4 @@ if ($_GET['format'] == "xml" || $_SERVER['HTTP_ACCEPT'] == "application/xml") {
 	header ("content-type: text/html");
 	include("result.php");
 }
-
+mysql_close($link);
