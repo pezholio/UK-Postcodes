@@ -11,7 +11,7 @@
 </head>
 <body>
 <div id="header">
-<h1><a href="http://www.uk-postcodes.com">UK Postcodes</a></h1>
+<h1><a href="/">UK Postcodes</a></h1>
 </div>
 
 <div id="main">
@@ -19,12 +19,12 @@
 <div id="wrapper">
 <p>Get the data you want simply by constructing your URLs as follows:</p>
 <h3>Return data for a postcode</h3>
-<code>http://www.uk-postcodes.com/postcode/<strong>[postcode (no space)]</strong>.<strong>['xml', 'csv', 'json'* or 'rdf']</strong></code>
+<code>http://<?php echo $_SERVER['SERVER_NAME'] ?>/postcode/<strong>[postcode (no space)]</strong>.<strong>['xml', 'csv', 'json'* or 'rdf']</strong></code>
 <h3>Return data for the nearest postcode to a point</h3>
-<code>http://www.uk-postcodes.com/latlng/<strong>[latitude]</strong>,<strong>[longitude]</strong>.<strong>['xml', 'csv', 'json'* or 'rdf']</strong></code>
+<code>http://<?php echo $_SERVER['SERVER_NAME'] ?>/latlng/<strong>[latitude]</strong>,<strong>[longitude]</strong>.<strong>['xml', 'csv', 'json'* or 'rdf']</strong></code>
 <h3>Return data for postcodes within x distance (miles) of a postcode or lat/lng</h3>
-<code>http://www.uk-postcodes.com/distance.php?<strong>postcode=[postcode]</strong>&<strong>distance=[distance in miles]</strong>&<strong>format=[xml|csv|json]</strong></code>
-<code>http://www.uk-postcodes.com/distance.php?<strong>lat=[latitude]</strong>&<strong>lng=[longitude]</strong>&<strong>distance=[distance in miles]</strong>&<strong>format=[xml|csv|json]</strong></code>
+<code>http://<?php echo $_SERVER['SERVER_NAME'] ?>/distance.php?<strong>postcode=[postcode]</strong>&<strong>distance=[distance in miles]</strong>&<strong>format=[xml|csv|json]</strong></code>
+<code>http://<?php echo $_SERVER['SERVER_NAME'] ?>/distance.php?<strong>lat=[latitude]</strong>&<strong>lng=[longitude]</strong>&<strong>distance=[distance in miles]</strong>&<strong>format=[xml|csv|json]</strong></code>
 <p>That's it! Be nice to the server and cache your requests!</p>
 <p><small>* If using JSON, add '?callback=<strong>[some function call]</strong>' to the url to return JSONP</small></p>
 <h2 id="libraries">Helper Libraries</h2>
@@ -37,7 +37,7 @@
 </div>
 
 <div id="formats">
-<p>Created using <a href="http://www.ordnancesurvey.co.uk/oswebsite/opendata/">Ordnance Survey Open Data</a> | <a href="api.php">API</a> | <a href="http://www.uk-postcodes.com/alternative.php">Alternative services</a> | <a href="apps.php">Apps</a><img src="http://m.okfn.org/images/ok_buttons/od_80x15_blue.png" alt="Open Data" style="float:right;" /></p>
+<p>Created using <a href="http://www.ordnancesurvey.co.uk/oswebsite/opendata/">Ordnance Survey Open Data</a> | <a href="api.php">API</a> | <a href="/alternative.php">Alternative services</a> | <a href="apps.php">Apps</a><img src="http://m.okfn.org/images/ok_buttons/od_80x15_blue.png" alt="Open Data" style="float:right;" /></p>
 <p>Built by <a href="http://www.pezholio.co.uk">Pezholio</a></p>
 </div>
 <script type="text/javascript">

@@ -17,7 +17,7 @@ if ($single) {
 </head>
 <body onload="init();">
 <div id="header">
-<h1><a href="http://www.uk-postcodes.com">UK Postcodes</a></h1>
+<h1><a href="/">UK Postcodes</a></h1>
 </div>
 <div id="main" class="vcard">
 <div class="adr">
@@ -71,7 +71,7 @@ if (strlen($parishname) > 0) {
 </div>
 </div>
 <div id="formats">
-<p>Get this information as <a href="http://www.uk-postcodes.com<?php echo $_SERVER['REQUEST_URI']; ?>.xml">XML</a>, <a href="http://www.uk-postcodes.com<?php echo $_SERVER['REQUEST_URI']; ?>.csv">CSV</a>, <a href="http://www.uk-postcodes.com<?php echo $_SERVER['REQUEST_URI']; ?>.json">JSON</a> or <a href="http://www.uk-postcodes.com<?php echo $_SERVER['REQUEST_URI']; ?>.rdf">RDF</a> <img src="http://www.uk-postcodes.com/microformats.png" alt="Microformats" style="float:right; margin-left: 10px;" /> <img src="http://m.okfn.org/images/ok_buttons/od_80x15_blue.png" alt="Open Data" style="float:right;" /></p>
+<p>Get this information as <a href="<?php echo $_SERVER['REQUEST_URI']; ?>.xml">XML</a>, <a href="<?php echo $_SERVER['REQUEST_URI']; ?>.csv">CSV</a>, <a href="<?php echo $_SERVER['REQUEST_URI']; ?>.json">JSON</a> or <a href="<?php echo $_SERVER['REQUEST_URI']; ?>.rdf">RDF</a> <img src="/microformats.png" alt="Microformats" style="float:right; margin-left: 10px;" /> <img src="http://m.okfn.org/images/ok_buttons/od_80x15_blue.png" alt="Open Data" style="float:right;" /></p>
 </div>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -97,7 +97,7 @@ pageTracker._trackPageview();
 </head>
 <body>
 <div id="header">
-<h1><a href="http://www.uk-postcodes.com">UK Postcodes</a></h1>
+<h1><a href="/">UK Postcodes</a></h1>
 </div>
 <div id="main">
 <h2>Postcodes within <?php echo $distance; ?> miles of <?php echo $title; ?></h2>
@@ -106,7 +106,7 @@ pageTracker._trackPageview();
 <?php
 while ($row = mysql_fetch_array($result)) {
 ?>
-<li><a href="http://www.uk-postcodes.com/postcode/<?php echo str_replace(" ", "", $row['postcode']); ?>"><?php echo $row['postcode']; ?></a></li>
+<li><a href="/postcode/<?php echo str_replace(" ", "", $row['postcode']); ?>"><?php echo $row['postcode']; ?></a></li>
 <?php
 }
 ?>

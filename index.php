@@ -1,10 +1,10 @@
 <?php
 if ($_POST['form'] == 1) {
-header("Location: http://www.uk-postcodes.com/postcode/".str_replace(" ", "", $_POST['postcode']). $_POST['type']);
+header("Location: /postcode/".str_replace(" ", "", $_POST['postcode']). $_POST['type']);
 } elseif ($_POST['form'] == 2) {
-header("Location: http://www.uk-postcodes.com/distance.php?postcode=".str_replace(" ", "", $_POST['postcode'])."&distance=". $_POST['distance'] ."&format=". $_POST['type']);
+header("Location: /distance.php?postcode=".str_replace(" ", "", $_POST['postcode'])."&distance=". $_POST['distance'] ."&format=". $_POST['type']);
 } elseif ($_POST['form'] == 3) {
-header("Location: http://www.uk-postcodes.com/latlng/".$_POST['lat'].",".$_POST['lng']. $_POST['type']);
+header("Location: /latlng/".$_POST['lat'].",".$_POST['lng']. $_POST['type']);
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -39,7 +39,7 @@ header("Location: http://www.uk-postcodes.com/latlng/".$_POST['lat'].",".$_POST[
 </head>
 <body>
 <div id="header">
-<h1><a href="http://www.uk-postcodes.com">UK Postcodes</a></h1>
+<h1><a href="/">UK Postcodes</a></h1>
 <div id="corner">Now including Northern Ireland postcodes!</div>
 
 <ul id="tab">
@@ -99,7 +99,7 @@ format <button type="submit" class="btn" name="latlng"><span><span>please</span>
 </div>
 
 <div id="formats">
-<p>Created using <a href="http://www.ordnancesurvey.co.uk/oswebsite/opendata/">Ordnance Survey Open Data</a> | <a href="api.php">API</a> | <a href="http://www.uk-postcodes.com/alternative.php">Alternative services</a> | <a href="apps.php">Apps</a><img src="http://m.okfn.org/images/ok_buttons/od_80x15_blue.png" alt="Open Data" style="float:right;" /></p>
+<p>Created using <a href="http://www.ordnancesurvey.co.uk/oswebsite/opendata/">Ordnance Survey Open Data</a> | <a href="api.php">API</a> | <a href="/alternative.php">Alternative services</a> | <a href="apps.php">Apps</a><img src="http://m.okfn.org/images/ok_buttons/od_80x15_blue.png" alt="Open Data" style="float:right;" /></p>
 <p>Built by <a href="http://www.pezholio.co.uk">Pezholio</a></p>
 </div>
 <div id="copyright">

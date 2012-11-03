@@ -3,7 +3,7 @@ if ($single) {
 $row['postcode'] = str_replace(" ", "", $row['postcode']);
 ?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:spatialrelations="http://data.ordnancesurvey.co.uk/ontology/spatialrelations/" xmlns:admingeo="http://statistics.data.gov.uk/def/administrative-geography/" xmlns:elecgeo="http://statistics.data.gov.uk/def/electoral-geography/" xmlns:osadmingeo="http://data.ordnancesurvey.co.uk/ontology/admingeo/" xmlns:owl="http://www.w3.org/2002/07/owl#" >
- <rdf:Description rdf:about="http://www.uk-postcodes.com/postcode/<?php echo strtoupper($row['postcode']); ?>">
+ <rdf:Description rdf:about="http://<?php echo $_SERVER['SERVER_NAME'] ?>/postcode/<?php echo strtoupper($row['postcode']); ?>">
    <rdfs:label><?php echo strtoupper($row['postcode']); ?></rdfs:label>	
    <owl:sameAs rdf:resource="http://data.ordnancesurvey.co.uk/id/postcodeunit/<?php echo strtoupper($row['postcode']); ?>"/>
    <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"><?php echo $lat; ?></geo:lat>
@@ -45,7 +45,7 @@ $row['postcode'] = str_replace(" ", "", $row['postcode']);
 while ($row = mysql_fetch_array($result)) {
 $row['postcode'] = str_replace(" ", "", $row['postcode']);
 ?>
-  <rdf:Description rdf:about="http://www.uk-postcodes.com/postcode/<?php echo strtoupper($row['postcode']); ?>">
+  <rdf:Description rdf:about="http://<?php echo $_SERVER['SERVER_NAME'] ?>/postcode/<?php echo strtoupper($row['postcode']); ?>">
   	  <rdfs:label><?php echo strtoupper($row['postcode']); ?></rdfs:label>
    	  <geo:lat rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"><?php echo $lat; ?></geo:lat>
       <geo:long rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"><?php echo $lng; ?></geo:long>	

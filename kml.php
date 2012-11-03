@@ -12,7 +12,7 @@ while ($row = mysql_fetch_array($result)) {
     <name><?php echo $row['postcode']; ?></name>
     <description>
     <![CDATA[
-<a href="http://www.uk-postcodes.com/postcode/<?php echo str_replace(" ", "", $row['postcode']); ?>"><?php echo $row['postcode']; ?></a>
+<a href="http://<?php echo $_SERVER['SERVER_NAME'] ?>/postcode/<?php echo str_replace(" ", "", $row['postcode']); ?>"><?php echo $row['postcode']; ?></a>
 	]]>
 </description>
     <Point>

@@ -45,7 +45,7 @@ $json[$num]['postcode'] = $row['postcode'];
 $json[$num]['lat'] = $row['lat'];
 $json[$num]['lng'] = $row['lng'];
 $json[$num]['distance'] = $row['distance'];
-$json[$num]['uri'] = "http://www.uk-postcodes.com/postcode/". str_replace(" ", "", $row['postcode']);
+$json[$num]['uri'] = "http://".$_SERVER['SERVER_NAME']."/postcode/". str_replace(" ", "", $row['postcode']);
 $num++;
 }
 	if ($callback) {
