@@ -18,9 +18,9 @@ if ($postcode != strtoupper($postcode)) {
 	header ('HTTP/1.1 301 Moved Permanently');
 	
 	if (strlen($_GET['format']) > 0) {
-		header("Location: http://www.uk-postcodes.com/postcode/".strtoupper($postcode).".".$_GET['format']);
+		header("Location: /postcode/".strtoupper($postcode).".".$_GET['format']);
 	} else {
-		header("Location: http://www.uk-postcodes.com/postcode/".strtoupper($postcode));
+		header("Location: /postcode/".strtoupper($postcode));
 	}
 }
 

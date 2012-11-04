@@ -16,9 +16,9 @@ if ($_GET['postcode']) {
 		header ('HTTP/1.1 301 Moved Permanently');
 	
 		if (strlen($_GET['format']) > 0) {
-			header("Location: http://www.uk-postcodes.com/postcode/".strtoupper($postcode).".".$_GET['format']);
+			header("Location: /postcode/".strtoupper($postcode).".".$_GET['format']);
 		} else {
-			header("Location: http://www.uk-postcodes.com/postcode/".strtoupper($postcode));
+			header("Location: /postcode/".strtoupper($postcode));
 		}
 		exit;
 	}
@@ -27,9 +27,9 @@ if ($_GET['postcode']) {
 		header ('HTTP/1.1 301 Moved Permanently');
 	
 		if (strlen($_GET['format']) > 0) {
-			header("Location: http://www.uk-postcodes.com/postcode/".str_replace(" ", "", $postcode).".".$_GET['format']);
+			header("Location: /postcode/".str_replace(" ", "", $postcode).".".$_GET['format']);
 		} else {
-			header("Location: http://www.uk-postcodes.com/postcode/".str_replace(" ", "", $postcode));
+			header("Location: /postcode/".str_replace(" ", "", $postcode));
 		}
 		exit;
 	}
@@ -45,6 +45,7 @@ if ($_GET['postcode']) {
 } else {
 	$lat = mysql_real_escape_string($_GET['lat']);
 	$lng = mysql_real_escape_string($_GET['lng']);
+	//$result = mysql_query("SELECT postcode, ( 3959 * acos( cos( radians($lat) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($lng) ) + sin( radians($lat) ) * sin( radians( lat ) ) ) ) AS distance FROM postcodes  WHERE ".($lat-0.1)." < lat AND ".($lat+0.1)." > lat AND ".($lng-0.1)." < lng AND ".($lng+0.1)." > lng ORDER BY distance LIMIT 0,1");
 	$result = mysql_query("SELECT postcode, ( 3959 * acos( cos( radians($lat) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($lng) ) + sin( radians($lat) ) * sin( radians( lat ) ) ) ) AS distance FROM postcodes ORDER BY distance LIMIT 0,1");
 	$row = mysql_fetch_array($result);
 	

@@ -15,7 +15,7 @@ function showMap(position) {
     longitude = position.coords.longitude;
 	accuracy = position.coords.accuracy;
   if (accuracy < 250) {
-  window.location="http://www.uk-postcodes.com/latlng/"+ latitude +","+ longitude;
+  window.location="http://<?php echo $_SERVER['SERVER_NAME'] ?>/latlng/"+ latitude +","+ longitude;
 	}  
 }
  

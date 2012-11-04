@@ -6,18 +6,18 @@
 <link type="text/css" rel="stylesheet" href="http://www.blueprintcss.org/blueprint/src/grid.css" />
 <link type="text/css" rel="stylesheet" href="http://www.blueprintcss.org/blueprint/src/typography.css" />
 <link type="text/css" rel="stylesheet" href="http://www.blueprintcss.org/blueprint/src/forms.css" />
-<link type="text/css" rel="stylesheet" href="http://www.uk-postcodes.com/style.css" />
+<link type="text/css" rel="stylesheet" href="/style.css" />
 </head>
 <body>
 <div id="header">
-<h1><a href="http://www.uk-postcodes.com">UK Postcodes</a></h1>
+<h1><a href="/">UK Postcodes</a></h1>
 </div>
 
 <div id="main">
 <h2>Resource not found</h2>
 <div id="wrapper">
-<p>http://www.uk-postcodes.com/postcode/<?php echo $postcode; ?> was not found on this server.</p>
-<p>Why not try <a href="http://www.uk-postcodes.com">searching again</a>?</p>
+<p>http://<?php echo $_SERVER['SERVER_NAME'] ?>/postcode/<?php echo $postcode; ?> was not found on this server.</p>
+<p>Why not try <a href="/">searching again</a>?</p>
 </div>
 </div>
 

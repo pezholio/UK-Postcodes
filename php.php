@@ -3,7 +3,7 @@ function ernest_marples($postcode) {
 
 $postcode = str_replace(" ", "", $postcode);
 
-$url = "http://www.uk-postcodes.com/postcode/". urlencode($postcode) .".csv"; // Build the URL
+$url = "http://".$_SERVER['SERVER_NAME']."/postcode/". urlencode($postcode) .".csv"; // Build the URL
 
 $file = file_get_contents($url);
 

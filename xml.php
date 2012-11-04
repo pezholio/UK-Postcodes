@@ -61,7 +61,7 @@ while ($row = mysql_fetch_array($result)) {
 			<lat><?php echo $row['lat']; ?></lat>
 			<lng><?php echo $row['lng']; ?></lng>
 			<distance><?php echo $row['distance']; ?></distance>
-			<uri>http://www.uk-postcodes.com/postcode/<?php echo str_replace(" ", "", $row['postcode']); ?></uri>
+			<uri>http://<?php echo $_SERVER['SERVER_NAME'] ?>/postcode/<?php echo str_replace(" ", "", $row['postcode']); ?></uri>
 		</postcode>
 <?php } ?>
 	</postcodes>

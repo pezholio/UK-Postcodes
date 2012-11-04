@@ -5,7 +5,7 @@ echo $postcode .",". $lat .",". $lng. ",". $easting .",". $northing .",". $geoha
 } elseif ($distance) {
 header("Content-Disposition: attachment; filename=\"".$distance." miles of ". $title .".csv\"");
 while ($row = mysql_fetch_array($result)) {
-echo $row['postcode'] .",". $row['lat'] .",". $row['lng']. ",http://www.uk-postcodes.com/postcode/". str_replace(" ", "", $row['postcode']) ."\r\n";
+echo $row['postcode'] .",". $row['lat'] .",". $row['lng']. ",http://".$_SERVER['SERVER_NAME']."/postcode/". str_replace(" ", "", $row['postcode']) ."\r\n";
 }
 }
 ?>

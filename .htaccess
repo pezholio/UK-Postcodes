@@ -1,7 +1,8 @@
+Options -MultiViews
 RewriteEngine on 
 RewriteBase /
-RewriteCond %{HTTP_HOST} !^www.uk-postcodes.com$
-RewriteRule ^(.*)$ http://www.uk-postcodes.com/$1 [R=301]
+#RewriteCond %{HTTP_HOST} !^www.uk-postcodes.com$
+#RewriteRule ^(.*)$ http://www.uk-postcodes.com/$1 [R=301]
 RewriteRule ^postcode/(all)\.?(xml|json|rdf|csv)?$ all.php?format=$2 [NC]
 RewriteCond %{QUERY_STRING} callback=(.*)
 RewriteRule ^postcode/([a-z0-9\ ]+)\.?(xml|json|rdf|csv)?$ postcode.php?postcode=$1&format=$2&callback=%1 [NC]

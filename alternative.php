@@ -11,7 +11,7 @@
 </head>
 <body>
 <div id="header">
-<h1><a href="http://www.uk-postcodes.com">UK Postcodes</a></h1>
+<h1><a href="/">UK Postcodes</a></h1>
 </div>
 
 <div id="main">
@@ -28,7 +28,7 @@
 </div>
 
 <div id="formats">
-<p>Created using <a href="http://www.ordnancesurvey.co.uk/oswebsite/opendata/">Ordnance Survey Open Data</a> | <a href="api.php">API</a> | <a href="http://www.uk-postcodes.com/alternative.php">Alternative services</a> | <a href="apps.php">Apps</a><img src="http://m.okfn.org/images/ok_buttons/od_80x15_blue.png" alt="Open Data" style="float:right;" /></p>
+<p>Created using <a href="http://www.ordnancesurvey.co.uk/oswebsite/opendata/">Ordnance Survey Open Data</a> | <a href="api.php">API</a> | <a href="/alternative.php">Alternative services</a> | <a href="apps.php">Apps</a><img src="http://m.okfn.org/images/ok_buttons/od_80x15_blue.png" alt="Open Data" style="float:right;" /></p>
 <p>Built by <a href="http://www.pezholio.co.uk">Pezholio</a></p>
 </div>
 <script type="text/javascript">
