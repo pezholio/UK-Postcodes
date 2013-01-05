@@ -32,6 +32,7 @@
 <ul>
 <li><a href="https://github.com/stefl/pat">Ruby Gem</a> (cleverly called Pat) By <a href="http://stef.io">Stef Lewandowski</a></li>
 <li><a href="http://gist.github.com/364477">PHP Function</a> by <a href="http://www.pezholio.co.uk">Stuart Harrison</a></li>
+<li><a href="https://postcodes.readthedocs.org/en/latest/">Python Client</a> by <a href="http://about.me/eddrobinson">Edd Robinson</a></li>
 </ul>
 </div>
 </div>
