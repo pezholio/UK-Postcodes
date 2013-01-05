@@ -78,15 +78,19 @@ $lng = $row['lng'];
 $easting = 	$row['easting'];
 $northing = $row['northing'];
 
-$geohash = file_get_contents("http://geohash.org?q=".$lat.",".$lng."&format=url");
+$ch_geohash = curl_init("http://geohash.org?q=".$lat.",".$lng."&format=url");
+curl_setopt($ch_geohash, CURLOPT_TIMEOUT, 5);
+curl_setopt($ch_geohash, CURLOPT_RETURNTRANSFER, 1);
+$geohash = curl_exec($ch_geohash);
+//$geohash = file_get_contents("http://geohash.org?q=".$lat.",".$lng."&format=url");
 
 $mapit = null;
 if (!strstr($row['countygss'], "99999999")) {
 
 	$countytitle = $row['countyname'];
 	$countycode = $row['countysnac'];
-
-	if (strlen($row['electoraldistrict']) == 0) {
+	//XXX HACK
+	if (strlen($row['electoraldistrict']) == 0 && false) {
 		
 		$mapit = json_decode(file_get_contents("http://mapit.mysociety.org/postcode/". urlencode($updatepostcode) .".json"));
 					
@@ -125,10 +129,9 @@ if (strlen($constituencycode) == 3) {
 } else {
 	$constituencyuri = "http://data.ordnancesurvey.co.uk/doc/7". str_pad($constituencycode, 15, "0", STR_PAD_LEFT);
 }
-
-if (strlen($row['parishgss'] == 0)) {
-
-	if (!$mapit) {
+//XXX HACK
+if (strlen($row['parishgss'] == 0) && false) {
+	if (!$mapit && false) {
 		$mapit = json_decode(file_get_contents("http://mapit.mysociety.org/postcode/". urlencode($updatepostcode) .".json"));
 	}
 
