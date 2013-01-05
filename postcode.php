@@ -81,6 +81,7 @@ $northing = $row['northing'];
 $ch_geohash = curl_init("http://geohash.org?q=".$lat.",".$lng."&format=url");
 curl_setopt($ch_geohash, CURLOPT_TIMEOUT, 5);
 curl_setopt($ch_geohash, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch_geohash, CURLOPT_FOLLOWLOCATION, true);
 $geohash = curl_exec($ch_geohash);
 //$geohash = file_get_contents("http://geohash.org?q=".$lat.",".$lng."&format=url");
 
