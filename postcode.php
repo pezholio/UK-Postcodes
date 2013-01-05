@@ -5,7 +5,7 @@ require_once("phpcoord-2.3.php");
 require_once("json.php");
 //require_once("electoraldistrict.php");
 
-$link = mysql_connect('localhost', $db_username, $db_password);
+$link = mysql_connect($db_host, $db_username, $db_password);
 mysql_select_db($db_name) or die(mysql_error());
 
 if ($_GET['postcode']) {
@@ -78,7 +78,11 @@ $lng = $row['lng'];
 $easting = 	$row['easting'];
 $northing = $row['northing'];
 
-$geohash = file_get_contents("http://geohash.org?q=".$lat.",".$lng."&format=url");
+$ch_geohash = curl_init("http://geohash.org?q=".$lat.",".$lng."&format=url");
+curl_setopt($ch_geohash, CURLOPT_TIMEOUT, 5);
+curl_setopt($ch_geohash, CURLOPT_RETURNTRANSFER, 1);
+$geohash = curl_exec($ch_geohash);
+//$geohash = file_get_contents("http://geohash.org?q=".$lat.",".$lng."&format=url");
 
 $mapit = null;
 if (!strstr($row['countygss'], "99999999")) {
