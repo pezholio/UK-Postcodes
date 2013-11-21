@@ -3,6 +3,7 @@ require_once("db.php");
 require_once("xmlparse.php");
 require_once("phpcoord-2.3.php");
 require_once("json.php");
+require_once("geohash.php");
 //require_once("electoraldistrict.php");
 
 $link = mysql_connect($db_host, $db_username, $db_password);
@@ -78,12 +79,8 @@ $lng = $row['lng'];
 $easting = 	$row['easting'];
 $northing = $row['northing'];
 
-$ch_geohash = curl_init("http://geohash.org?q=".$lat.",".$lng."&format=url");
-curl_setopt($ch_geohash, CURLOPT_TIMEOUT, 5);
-curl_setopt($ch_geohash, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch_geohash, CURLOPT_FOLLOWLOCATION, true);
-$geohash = curl_exec($ch_geohash);
-//$geohash = file_get_contents("http://geohash.org?q=".$lat.",".$lng."&format=url");
+$hash = $geohash->encode($lat, $lng);
+$geohash = "http://geohash.org/" + $hash
 
 $mapit = null;
 if (!strstr($row['countygss'], "99999999")) {
